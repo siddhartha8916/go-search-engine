@@ -2,12 +2,12 @@ package views
 
 templ Login() {
 	@template() {
-		<div class="flex justify-center items-center">
+		<div hx-ext="response-targets" class="flex justify-center items-center">
 			<form
-				action=""
 				class="flex flex-col justify-center items-center gap-5 py-5"
 				hx-post="/login"
 				hx-target="#feedback"
+				hx-target-error="#feedback"
 				hx-indicator="#indicator"
 			>
 				<label class="input input-bordered flex items-center gap-2 w-full">
@@ -16,11 +16,11 @@ templ Login() {
 				</label>
 				<label class="input input-bordered flex items-center gap-2 w-full">
 					Password
-					<input type="password" class="grow" name="password" placeholder="password"/>
+					<input type="password" class="grow" name="password" placeholder="Password"/>
 				</label>
-				<button type="submit" class="btn ">Login</button>
+				<button type="submit" class="btn">Login</button>
 				<div id="indicator" class="htmx-indicator">
-					<div class="flex items-center justify-center w-full">
+					<div class="flex justifty-center items-center w-full">
 						<span class="loading loading-spinner loading-lg text-primary h-20 w-20"></span>
 					</div>
 				</div>

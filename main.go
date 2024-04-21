@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"os/signal"
+	"sidd6916/search-engine/db"
 	"sidd6916/search-engine/routes"
 	"syscall"
 	"time"
@@ -34,7 +35,7 @@ func main() {
 		IdleTimeout: 5 * time.Second,
 	})
 	app.Use(compress.New())
-
+	db.InitDB()
 	routes.SetRoutes(app)
 
 	// Start our server
